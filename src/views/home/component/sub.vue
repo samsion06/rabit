@@ -1,12 +1,11 @@
 <template>
-  home
-  
-  
-  
+  sub
 </template>
 
 <script>
-
+  export default {
+    name: 'SubCategory'
+  }
 </script>
 
 <style>
