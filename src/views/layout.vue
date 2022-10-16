@@ -30,7 +30,7 @@
       const store = useStore()
       store.dispatch('category/getCategoryList') //actionname.modelusname category
       return {
-
+        //https://blog.csdn.net/weixin_43290151/article/details/124954767
       }
     }
 

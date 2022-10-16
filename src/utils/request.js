@@ -3,7 +3,10 @@ import store from '@/store'
 import router from '@/router'
 
 // 导出基准地址，原因：其他地方不是通过axios发请求的地方用上基准地址
-export const baseURL = 'http://pcapi-xiaotuxian-front-devtest.itheima.net/'
+//http://erabbit.itheima.net/#/
+//http://pcapi-xiaotuxian-front-devtest.itheima.net/
+//https://www.fastmock.site/mock/b2ecdc8e7184af75a82678b9eb14ab78/xiaotuxian
+export const baseURL = 'https://www.fastmock.site/mock/b2ecdc8e7184af75a82678b9eb14ab78/xiaotuxian'
 const instance = axios.create({
   baseURL,
   timeout: 5000
