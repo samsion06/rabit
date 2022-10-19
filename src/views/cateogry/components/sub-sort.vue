@@ -1,4 +1,5 @@
 <template>
+  <!--商品区域排序-->
   <div class='sub-sort'>
     <div class="sort">
       <a :class="{active:sortParams.sortField===null}" @click="changeSort(null)" href="javascript:;">默认排序</a>
@@ -24,7 +25,7 @@
   import { reactive } from 'vue'
   export default {
     name: 'SubSort',
-    setup() {
+    setup(props, { emit }) {
       const sortParams = reactive({
         inventory: false,
         onlyDiscount: false,
@@ -34,6 +35,7 @@
 
       //改变排序
       function changeSort(sortField) {
+        //更改排序的显示样式
         if (sortField === 'price') { //价格排序
           sortParams.sortField = sortField
           if (sortParams.sortMethod == null) {
@@ -51,6 +53,7 @@
           sortParams.sortField = sortField
           sortParams.sortMethod = null
         }
+        emit('sort-change', sortParams)
       }
       return {
         sortParams,

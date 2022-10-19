@@ -6,7 +6,7 @@ import router from '@/router'
 //http://erabbit.itheima.net/#/
 //http://pcapi-xiaotuxian-front-devtest.itheima.net/
 //https://www.fastmock.site/mock/b2ecdc8e7184af75a82678b9eb14ab78/xiaotuxian
-export const baseURL = 'https://www.fastmock.site/mock/b2ecdc8e7184af75a82678b9eb14ab78/xiaotuxian'
+export const baseURL = 'http://pcapi-xiaotuxian-front-devtest.itheima.net/'
 const instance = axios.create({
   baseURL,
   timeout: 5000

@@ -40,7 +40,7 @@
       HomeHot,
       HomeBrand,
       HomeProduct,
-    
+
     }
   }
 </script>

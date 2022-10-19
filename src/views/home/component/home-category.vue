@@ -25,7 +25,7 @@
       <!--v-if会监听属性,变化后重新渲染视图-->
       <ul v-if="currentCategory&&currentCategory.goods&&currentCategory.goods.length">
         <li v-for="good in currentCategory.goods" :key="good.id">
-          <RouterLink to="/">
+          <RouterLink :to="`/product/${good.id}`">
             <img :src="good.picture">
             <div class="info">
               <p class="name ellipsis-2">{{good.name}}</p>

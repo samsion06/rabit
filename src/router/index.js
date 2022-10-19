@@ -12,14 +12,19 @@ const routes = [{
         component: () => import('@/views/home/index.vue')
       },
       {
-        name: '一级分类',
+        name: '一级分类页面',
         path: 'category/:id',
         component: () => import('@/views/cateogry/index.vue')
       },
       {
-        name: '二级分类',
+        name: '二级分类页面',
         path: 'category/sub/:id',
         component: () => import('@/views/cateogry/sub.vue')
+      },
+      {
+        name: '商品详情',
+        path: 'product/:id',
+        component: () => import('@/views/goods/index.vue')
       },
     ]
   },
@@ -35,7 +40,7 @@ const router = createRouter({
   routes,
   //切换路由地址的时候，返回到顶部
   scrollBehavior() {
-    return { left: 0, top: 0 } 
+    return { left: 0, top: 0 }
   }
 
 

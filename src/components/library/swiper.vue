@@ -1,3 +1,4 @@
+<!--这块暂时不实现-->
 <template>
   <div class="swiper">
     <el-carousel :interval="5000" arrow="always" height="500px" :loop="true">
@@ -5,6 +6,7 @@
         <img
           src="http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-15/1ba86bcc-ae71-42a3-bc3e-37b662f7f07e.jpg"
           alt="" style="width: 100%; height: 100%;">
+        <slot name=""></slot>
       </el-carousel-item>
     </el-carousel>
   </div>

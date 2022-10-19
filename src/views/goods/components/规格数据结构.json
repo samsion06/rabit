@@ -1,0 +1,17 @@
+"skus":[
+{
+"id":"1630000",
+"skuCode":"1630000",
+"price":"559.00",
+"oldPrice":"799.00",
+"inventory":4454,
+"specs":[
+{
+"name":"颜色",
+"valueName":"黑色"
+},
+{
+"name":"尺码",
+"valueName":"S"
+}
+]
