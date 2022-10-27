@@ -1,21 +1,14 @@
 // 扩展vue原有的功能：全局组件，自定义指令，挂载原型方法，注意：没有全局过滤器。
 
-import XtxSkeleton from './xtx-skeleton'
-import Swiper from './swiper'
-import XtxMore from './xtx-more' //查看更多
-import XtxCheckbox from './xtx-checkbox'
-import XtxInfiniteLoading from './xtx-infinite-loading'
-import XtxCity from './xtx-city'
-import XtxNumbox from './xtx-numbox'
-
+//这句话直接扫描你当前目录下带vue结尾的所有组件拿到他的文件名=>./xtx-skeleton.vue
 const importFn = require.context('./', false, /\.vue$/)
+
 export default {
   install(app) {
     // 批量注册全局组件
     importFn.keys().forEach(key => { //'./xtx-skeleton.vue'
       // 导入组件
       const component = importFn(key).default
-      console.log("component", component);
       // 注册组件
       app.component(component.name, component)
     })

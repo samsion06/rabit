@@ -4,7 +4,7 @@
     <div class="label">数量</div>
     <div class="numbox">
       <a href="javascript:;" @click="changeNum(-1)">-</a>
-      <input type="text" readonly :value="num">
+      <input type="text" readonly :value="modelValue">
       <a href="javascript:;" @click="changeNum(+1)">+</a>
     </div>
   </div>
@@ -38,8 +38,9 @@
       //因为props只能单项数据流，不能直接修改props.modelValue所以要声明一个reative嫁接，修改后回传给父组件
       watch(() => props.modelValue, (newModelValue) => {
         num.value = newModelValue
-        console.log("newModelValue", newModelValue);
-      })
+        console.log(" num.value", num.value);
+        //console.log("newModelValue", newModelValue);
+      }, { immediate: true })
 
       function changeNum(step) {
         //num.value+=step 这样num.value的值已经改变
@@ -47,9 +48,9 @@
         let NUM = num.value + step
         if (NUM < props.min) return
         if (NUM > props.max) return
-        console.log("NUM", NUM);
-        //console.log("123");
-        emit('update:modelValue', NUM) //回传给v-model的num
+
+        emit('update:modelValue', NUM)
+        emit('change', NUM)
       }
 
       return {

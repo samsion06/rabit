@@ -13,6 +13,10 @@ import ui from '@/components/library/index.js'
 //导入elemnt-plus
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+//导入mock.js
+import './mock/index.js'
+
+
 
 const app = createApp(App)
 app.use(store).use(router).use(ui).use(ElementPlus).mount('#app')

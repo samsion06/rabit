@@ -36,7 +36,7 @@ instance.interceptors.response.use(res => res.data, err => {
     // encodeURIComponent 转换uri编码，防止解析地址出问题 (防止这种路径/user?a=10)
     router.push('/login?redirectUrl=' + fullPath) //
   }
-  return Promise.reject(err)
+  return Promise.reject(err.response)
 })
 
 // 请求工具函数
@@ -53,3 +53,5 @@ export default (url, method, submitData) => { //这里没有传参数的话显�
     [method.toLowerCase() === 'get' ? 'params' : 'data']: submitData
   })
 }
+
+

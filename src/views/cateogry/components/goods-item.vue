@@ -1,5 +1,5 @@
 <template>
-  <div class="goods-item">
+  <div class="goods-item" v-if="goods">
     <RouterLink to="/" class='category-goods'>
       <img :src="goods.picture" alt="">
       <p class="name ellipsis">{{goods.name}}</p>

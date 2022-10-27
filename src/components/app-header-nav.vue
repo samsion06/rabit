@@ -1,7 +1,7 @@
 <template>
   <ul class="app-header-nav">
     <li class="home">
-      <RouterLink to="/home">首页</RouterLink>
+      <RouterLink to="/">首页</RouterLink>
     </li>
     <!--v-for遍历的时候要有数据不然会报错-->
     <li v-for="item in list" :key="item.id" @mouseenter="show(item)" @mouseleave="hide(item)">

@@ -55,6 +55,7 @@
   const initDefaultSelected = (goods, skuId) => {
     //找到对应的规格
     const sku = goods.skus.find(sku => sku.id == skuId)
+    console.log("sku", goods);
     //再页面上点亮默认规格
     goods.specs.forEach((item, index) => { //item.values=》属性值组
       let btn = item.values.find(val => val.name == sku.specs[index].valueName)
@@ -108,11 +109,12 @@
       //获得字典对象
       const pathMap = getPathMap(props.goods.skus)
       //默认选中
-      initDefaultSelected(props.goods, props.skuId)
+      //initDefaultSelected(props.goods, props.skuId)
       //初始化禁用状态
       updateDisabledStatus(props.goods.specs, pathMap)
 
-      //选中与取消选中逻辑 selected前段加上去
+      //高亮选中的按钮取消其他按钮
+      //selected前段加上去，页面做渲染
       const clickSpecs = (item, val) => {
         //按钮禁用不能点击
         if (val.disabled) return
@@ -123,24 +125,29 @@
           item.values.forEach(bv => { bv.selected = false })
           val.selected = true
         }
+        //选中后刷新哪些按钮需要被禁用
         updateDisabledStatus(props.goods.specs, pathMap)
-        // 触发change事件将sku数据传递出去
+
+        //获取已经选择的按钮=>[按钮a,按钮b,undefined]
         const selectedArr = getSelectedValues(props.goods.specs).filter(v => v) //过滤掉undefined
-        //已选的长度==sepcs的长度
+
+        //已选的长度==sepcs的长度=>全部属性都选择了值，可以拉取规格数据
         if (selectedArr.length === props.goods.specs.length) {
+          //拿到规格数据取字典里面找，获取该规格的skuId=>蓝色*20:[1001]
           const skuIds = pathMap[selectedArr.join('*')]
+          //然后在商品详情也里面通过skuid找到对应的规格数据，返回给父组件
           const sku = props.goods.skus.find(sku => sku.id === skuIds[0])
-          // 传递
           emit('change', {
             skuId: sku.id,
             price: sku.price,
             oldPrice: sku.oldPrice,
-            inventory: sku.inventory,
+            inventory: sku.inventory, //库存
+            //规格描述
             specsText: sku.specs.reduce((p, n) => `${p} ${n.name}：${n.valueName}`, '').replace(' ', '')
           })
         } else {
-          //没选完整
-          emit('change', {})
+          //没选完整,回传一个字段给父组件用于判断是否能加入购物车
+          emit('change', '')
         }
       }
       return { clickSpecs }

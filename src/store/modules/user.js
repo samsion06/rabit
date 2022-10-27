@@ -10,13 +10,19 @@ export default {
         account: '',
         mobile: '',
         token: ''
-      }
+      },
+
     }
   },
   mutations: {
     // 修改用户信息，payload就是用户信息对象
     setUser(state, payload) {
+      console.log("payload", payload);
       state.profile = payload
+    },
+    //退出登录
+    loginOut(state, ) {
+      state.profile = {}
     }
   }
 }

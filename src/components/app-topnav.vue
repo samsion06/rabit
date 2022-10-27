@@ -4,9 +4,9 @@
       <ul>
         <template v-if="profile.token">
           <li><a href="javascript:;"><i class="iconfont icon-user"></i>{{profile.account}}</a></li>
-          <li><a href="javascript:;">退出登录</a></li>
+          <li><a href="javascript:;" @click="$store.commit('user/loginOut')">退出登录</a></li>
         </template>
-        <li v-else><a href="javascript:;">请先登录</a></li>
+        <li v-else><a href="javascript:;" @click="$router.push('/login')">请先登录</a></li>
         <li><a href="javascript:;">免费注册</a></li>
         <li><a href="javascript:;">我的订单</a></li>
         <li><a href="javascript:;">会员中心</a></li>
@@ -20,6 +20,7 @@
 
 <script>
   import { useStore } from 'vuex'
+
   export default {
     name: 'app-topnav',
     setup() {
@@ -27,7 +28,7 @@
       const { profile } = store.state.user //proxy{} store定义的都不用ref,reactive
 
       return {
-        profile
+        profile,
       }
     }
   }
@@ -36,6 +37,8 @@
 <style scoped lang="less">
   .app-topnav {
     background: #333;
+    z-index: 9999;
+
 
     ul {
       display: flex;

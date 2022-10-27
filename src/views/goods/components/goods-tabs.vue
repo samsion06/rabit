@@ -6,7 +6,7 @@
         @click="clickTab('comment')">商品评价<span>(500+)</span></a>
     </nav>
     <!-- 这个位置显示对应的组件 GoodsDetail 或者 GoodsComment 动态组件 -->
-    <component :is="'goods-'+activeName" />
+    <component :is="'goods-'+activeName"/>
   </div>
 </template>
 <script>

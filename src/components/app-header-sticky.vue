@@ -39,7 +39,7 @@
     background-color: #fff;
     border-bottom: 1px solid #e4e4e4;
     /*吸顶模块移出浏览器外*/
-    transform: translateY(0%);
+    transform: translateY(-100%);
     //visibility: hidden;
     opacity: 0;
 

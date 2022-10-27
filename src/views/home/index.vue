@@ -30,6 +30,8 @@
   import HomeHot from './component/home-hot.vue'
   import HomeBrand from './component/home-brand.vue'
   import HomeProduct from './component/home-product.vue'
+
+
   //import HomeSpecial from './component/home-speical.vue'
   export default {
     name: 'homepage',
